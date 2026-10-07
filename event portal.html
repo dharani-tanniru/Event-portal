@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniEvents | University Events & Conferences</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 23px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: #1d4ed8;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 600;
+            color: #475569;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #1d4ed8;
+        }
+
+        .nav-btn {
+            background: #1d4ed8;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 7px;
+        }
+
+        .nav-btn:hover {
+            background: #1e40af;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background:
+                linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(30, 64, 175, 0.88)),
+                linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text span {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 strong {
+            color: #93c5fd;
+        }
+
+        .hero p {
+            color: #dbeafe;
+            font-size: 17px;
+            max-width: 620px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 13px 22px;
+            border-radius: 7px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .primary-btn {
+            background: #ffffff;
+            color: #1d4ed8;
+        }
+
+        .secondary-btn {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 28px;
+            border-radius: 18px;
+        }
+
+        .hero-card h3 {
+            margin-bottom: 18px;
+            font-size: 20px;
+        }
+
+        .mini-event {
+            background: white;
+            color: #1e293b;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .date-box {
+            min-width: 55px;
+            height: 55px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 8px;
+            text-align: center;
+            padding-top: 7px;
+        }
+
+        .date-box b {
+            display: block;
+            font-size: 19px;
+        }
+
+        .date-box small {
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .mini-event h4 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .mini-event p {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .stats-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 30px 0;
+        }
+
+        .stat {
+            text-align: center;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat h2 {
+            color: #1d4ed8;
+            font-size: 30px;
+        }
+
+        .stat p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* ================= GENERAL ================= */
+
+        .section {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            color: #1d4ed8;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            margin: 8px 0;
+            color: #0f172a;
+        }
+
+        .section-heading p {
+            color: #64748b;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.08);
+            border-color: #bfdbfe;
+        }
+
+        .category-icon {
+            width: 55px;
+            height: 55px;
+            margin: auto auto 15px;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .category h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .category p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* ================= EVENTS ================= */
+
+        .events {
+            background: #f8fafc;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(15,23,42,0.08);
+        }
+
+        .event-banner {
+            height: 155px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            color: white;
+            position: relative;
+        }
+
+        .event-banner.green {
+            background: linear-gradient(135deg, #047857, #10b981);
+        }
+
+        .event-banner.purple {
+            background: linear-gradient(135deg, #6d28d9, #9333ea);
+        }
+
+        .event-type {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        .event-banner h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+
+        .event-content {
+            padding: 22px;
+        }
+
+        .event-info {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .event-info span {
+            color: #1d4ed8;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .event-footer {
+            margin-top: 18px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .spots {
+            font-size: 12px;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .register {
+            color: #1d4ed8;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* ================= FEATURED EVENT ================= */
+
+        .featured {
+            background: #0f172a;
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .featured-label {
+            color: #93c5fd;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .featured h2 {
+            font-size: 35px;
+            margin: 10px 0 15px;
+        }
+
+        .featured p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .featured-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .detail {
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 13px;
+        }
+
+        .register-btn {
+            background: #2563eb;
+            color: white;
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 7px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .featured-box {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .featured-box .big-number {
+            font-size: 55px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .featured-box p {
+            margin: 0;
+        }
+
+        /* ================= SPEAKERS ================= */
+
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .speaker {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            margin: auto auto 15px;
+            border-radius: 50%;
+            background: #dbeafe;
+            color: #1d4ed8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .speaker h3 {
+            font-size: 16px;
+        }
+
+        .speaker p {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* ================= REGISTRATION ================= */
+
+        .registration {
+            background: #eff6ff;
+        }
+
+        .registration-box {
+            background: white;
+            max-width: 850px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(30,64,175,0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #334155;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #2563eb;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            border: none;
+            background: #1d4ed8;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 55px 0 20px;
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            margin-top: 15px;
+            max-width: 350px;
+            font-size: 14px;
+        }
+
+        footer h3 {
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 9px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        footer li:hover {
+            color: white;
+        }
+
+        .copyright {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            nav {
+                gap: 12px;
+            }
+
+            .hero-content,
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .categories,
+            .speaker-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                height: auto;
+                padding: 18px 0;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .stat {
+                border-right: none;
+            }
+
+            .categories,
+            .event-grid,
+            .speaker-grid,
+            .form-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .featured {
+                padding: 30px;
+            }
+
+            .featured h2 {
+                font-size: 27px;
+            }
+
+            .registration-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <div class="navbar">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">U</div>
+                UniEvents
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#categories">Categories</a>
+                <a href="#speakers">Speakers</a>
+                <a href="#register" class="nav-btn">Register</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <span>🎓 UNIVERSITY EVENT PORTAL</span>
+
+                <h1>
+                    Discover. Learn.<br>
+                    <strong>Connect & Grow.</strong>
+                </h1>
+
+                <p>
+                    Explore university conferences, workshops, seminars,
+                    guest lectures and academic events. Register for
+                    experiences that inspire knowledge and innovation.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#events" class="primary-btn">
+                        Explore Events
+                    </a>
+
+                    <a href="#register" class="secondary-btn">
+                        Register Now
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <h3>Upcoming This Week</h3>
+
+                <div class="mini-event">
+
+                    <div class="date-box">
+                        <b>18</b>
+                        <small>OCT</small>
+                    </div>
+
+                    <div>
+                        <h4>AI & Future Technology</h4>
+                        <p>International Conference</p>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-event">
+
+                    <div class="date-box">
+                        <b>21</b>
+                        <small>OCT</small>
+                    </div>
+
+                    <div>
+                        <h4>Research Methodology</h4>
+                        <p>Faculty Workshop</p>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-event">
+
+                    <div class="date-box">
+                        <b>24</b>
+                        <small>OCT</small>
+                    </div>
+
+                    <div>
+                        <h4>Entrepreneurship Summit</h4>
+                        <p>Student Seminar</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stats-container">
+
+            <div class="stat">
+                <h2>120+</h2>
+                <p>Events This Year</p>
+            </div>
+
+            <div class="stat">
+                <h2>35+</h2>
+                <p>Expert Speakers</p>
+            </div>
+
+            <div class="stat">
+                <h2>8K+</h2>
+                <p>Participants</p>
+            </div>
+
+            <div class="stat">
+                <h2>25</h2>
+                <p>Departments</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section" id="categories">
+
+        <div class="section-heading">
+
+            <span>Explore</span>
+
+            <h2>Event Categories</h2>
+
+            <p>
+                Find events that match your interests, academic goals
+                and professional aspirations.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category">
+                <div class="category-icon">🎤</div>
+                <h3>Conferences</h3>
+                <p>Academic and international conferences</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🛠</div>
+                <h3>Workshops</h3>
+                <p>Hands-on learning and practical sessions</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">💡</div>
+                <h3>Seminars</h3>
+                <p>Expert talks and academic discussions</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🚀</div>
+                <h3>Student Events</h3>
+                <p>Competitions, clubs and student activities</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EVENTS ================= -->
+
+    <section class="events" id="events">
+
+        <div class="section">
+
+            <div class="section-heading">
+
+                <span>What's Happening</span>
+
+                <h2>Upcoming Events</h2>
+
+                <p>
+                    Stay updated with the latest events happening
+                    across the university.
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+                <!-- Event 1 -->
+
+                <div class="event-card">
+
+                    <div class="event-banner">
+
+                        <span class="event-type">
+                            CONFERENCE
+                        </span>
+
+                        <h3>
+                            International Conference on AI & Technology
+                        </h3>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-info">
+                            <span>📅</span>
+                            October 18, 2026
+                        </div>
+
+                        <div class="event-info">
+                            <span>📍</span>
+                            Main Auditorium
+                        </div>
+
+                        <div class="event-info">
+                            <span>👤</span>
+                            Dr. Sarah Johnson
+                        </div>
+
+                        <div class="event-footer">
+                            <span class="spots">● 45 Seats Left</span>
+                            <a href="#register" class="register">
+                                Register →
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Event 2 -->
+
+                <div class="event-card">
+
+                    <div class="event-banner green">
+
+                        <span class="event-type">
+                            WORKSHOP
+                        </span>
+
+                        <h3>
+                            Research Methodology & Academic Writing
+                        </h3>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-info">
+                            <span>📅</span>
+                            October 21, 2026
+                        </div>
+
+                        <div class="event-info">
+                            <span>📍</span>
+                            Seminar Hall B
+                        </div>
+
+                        <div class="event-info">
+                            <span>👤</span>
+                            Prof. Michael Brown
+                        </div>
+
+                        <div class="event-footer">
+                            <span class="spots">● 18 Seats Left</span>
+                            <a href="#register" class="register">
+                                Register →
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Event 3 -->
+
+                <div class="event-card">
+
+                    <div class="event-banner purple">
+
+                        <span class="event-type">
+                            SEMINAR
+                        </span>
+
+                        <h3>
+                            Entrepreneurship & Innovation Summit
+                        </h3>
+
+                    </div>
+
+                    <div class="event-content">
+
+                        <div class="event-info">
+                            <span>📅</span>
+                            October 24, 2026
+                        </div>
+
+                        <div class="event-info">
+                            <span>📍</span>
+                            Innovation Center
+                        </div>
+
+                        <div class="event-info">
+                            <span>👤</span>
+                            Alex Williams
+                        </div>
+
+                        <div class="event-footer">
+                            <span class="spots">● 72 Seats Left</span>
+                            <a href="#register" class="register">
+                                Register →
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED ================= -->
+
+    <section class="section">
+
+        <div class="featured">
+
+            <div>
+
+                <span class="featured-label">
+                    Featured Event
+                </span>
+
+                <h2>
+                    Global Research & Innovation Conference 2026
+                </h2>
+
+                <p>
+                    Join researchers, academics, industry leaders and
+                    students for two days of ideas, collaboration and
+                    innovation.
+                </p>
+
+                <div class="featured-details">
+
+                    <div class="detail">
+                        📅 Nov 12–13, 2026
+                    </div>
+
+                    <div class="detail">
+                        📍 University Convention Center
+                    </div>
+
+                    <div class="detail">
+                        👥 500+ Attendees
+                    </div>
+
+                </div>
+
+                <a href="#register" class="register-btn">
+                    Reserve Your Seat
+                </a>
+
+            </div>
+
+
+            <div class="featured-box">
+
+                <div class="big-number">500+</div>
+
+                <p>
+                    Researchers & Students Expected
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPEAKERS ================= -->
+
+    <section class="section" id="speakers">
+
+        <div class="section-heading">
+
+            <span>Meet Our Experts</span>
+
+            <h2>Featured Speakers</h2>
+
+            <p>
+                Learn from researchers, professors and industry leaders.
+            </p>
+
+        </div>
+
+
+        <div class="speaker-grid">
+
+            <div class="speaker">
+
+                <div class="avatar">SJ</div>
+
+                <h3>Dr. Sarah Johnson</h3>
+
+                <p>AI Researcher · MIT</p>
+
+            </div>
+
+
+            <div class="speaker">
+
+                <div class="avatar">MB</div>
+
+                <h3>Prof. Michael Brown</h3>
+
+                <p>Research Director</p>
+
+            </div>
+
+
+            <div class="speaker">
+
+                <div class="avatar">AW</div>
+
+                <h3>Alex Williams</h3>
+
+                <p>Startup Founder</p>
+
+            </div>
+
+
+            <div class="speaker">
+
+                <div class="avatar">RK</div>
+
+                <h3>Dr. Rachel Kumar</h3>
+
+                <p>Professor · Computer Science</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REGISTRATION ================= -->
+
+    <section class="registration" id="register">
+
+        <div class="section">
+
+            <div class="section-heading">
+
+                <span>Join Us</span>
+
+                <h2>Event Registration</h2>
+
+                <p>
+                    Fill in your details to reserve your place at an
+                    upcoming university event.
+                </p>
+
+            </div>
+
+
+            <div class="registration-box">
+
+                <form>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>Full Name</label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Email Address</label>
+
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>University / Department</label>
+
+                            <input
+                                type="text"
+                                placeholder="Department or university"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Select Event</label>
+
+                            <select>
+
+                                <option>
+                                    Select an event
+                                </option>
+
+                                <option>
+                                    AI & Technology Conference
+                                </option>
+
+                                <option>
+                                    Research Methodology Workshop
+                                </option>
+
+                                <option>
+                                    Entrepreneurship Summit
+                                </option>
+
+                                <option>
+                                    Global Research Conference
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>Message / Special Requirements</label>
+
+                            <textarea
+                                placeholder="Enter any additional information..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="submit-btn">
+                        Complete Registration
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    <div class="logo-icon">U</div>
+                    UniEvents
+                </div>
+
+                <p>
+                    Your central platform for discovering university
+                    events, conferences, workshops and seminars.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="#events">Upcoming Events</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#register">Registration</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Resources</h3>
+
+                <ul>
+                    <li>Event Calendar</li>
+                    <li>Conference Guidelines</li>
+                    <li>FAQs</li>
+                    <li>Help Center</li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>Contact</h3>
+
+                <ul>
+                    <li>📧 events@university.edu</li>
+                    <li>📞 +91 98765 43210</li>
+                    <li>📍 University Campus</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 UniEvents University Portal. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>
